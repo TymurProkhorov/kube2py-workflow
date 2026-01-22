@@ -104,7 +104,7 @@ jobs:
         uses: azure/setup-helm@v4.2.0
 
       - name: Lint helm
-        run: helm lint ./kube2py-workflow
+        run: helm lint ./kube2py-workflow/helm-charts
 
       - name: Template helm
         run: helm template kube2py-workflow ./kube2py-workflow/ -f ./kube2py-workflow/values.yml
