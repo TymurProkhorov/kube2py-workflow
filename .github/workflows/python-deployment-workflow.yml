@@ -104,13 +104,13 @@ jobs:
         uses: azure/setup-helm@v4.2.0
 
       - name: Lint helm
-        run: helm lint ./kube2py-workflow/helm-charts
+        run: helm lint ./kube2py-workflow/helm-charts/kube2py
 
       - name: Template helm
-        run: helm template kube2py-workflow ./kube2py-workflow/ -f ./kube2py-workflow/values.yml
+        run: helm template kube2py ./kube2py-workflow/helm-charts/kube2py -f ./kube2py-workflow/helm-charts/kube2py/values.yaml
 
       - name: Package helm
-        run: helm package ./kube2py-workflow
+        run: helm package ./kube2py-workflow/helm-charts/kube2py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
